@@ -138,7 +138,7 @@ export default function SigninWithPassword({
               withIcon="check"
               minimal
               radius="md"
-              checked={values.remember}
+              // checked={values.remember}
               onChange={(e) => setFieldValue("remember", e.target.checked)}
             />
 

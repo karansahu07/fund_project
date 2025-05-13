@@ -32,11 +32,13 @@ export default function Signin() {
       <div>
         <SigninWithPassword
           handleSubmit={handleSubmit}
-          initialValues={initialValues}
           validationSchema={validationSchema}
-          error={null}      // Optional: You can wire this to your state
-          loading={false}   // Optional: You can toggle based on request status
-        />
+          loading={false} // Optional: You can toggle based on request status
+          initialValues={{
+            email: "",
+            password: "",
+            remember: false
+          }}        />
       </div>
 
       <div className="mt-6 text-center">
