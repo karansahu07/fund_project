@@ -9,6 +9,7 @@ export interface IUser extends Document {
   dateOfJoining: Date;
   dob: Date;
   role: 'admin' | 'employee';
+  dateOfResigning: Date;
   isActive: boolean;
   createdBy: mongoose.Types.ObjectId;
   updatedBy: mongoose.Types.ObjectId;
@@ -56,6 +57,9 @@ const UserSchema: Schema<IUser> = new Schema<IUser>(
       enum: ['admin', 'employee'],
       default: 'employee',
     },
+    dateOfResigning: {
+      type: Date,
+    },
     isActive: {
       type: Boolean,
       default: true,
@@ -70,7 +74,7 @@ const UserSchema: Schema<IUser> = new Schema<IUser>(
     },
   },
   {
-    timestamps: true, // Adds createdAt and updatedAt
+    timestamps: true, 
   }
 );
 

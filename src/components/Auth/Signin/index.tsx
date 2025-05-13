@@ -1,20 +1,28 @@
 import Link from "next/link";
-// import GoogleSigninButton from "../GoogleSigninButton";
+import * as Yup from "yup";
 import SigninWithPassword from "../SigninWithPassword";
+
+// Initial form values
+const initialValues = {
+  email: "",
+  password: "",
+};
+
+// Yup validation schema
+const validationSchema = Yup.object({
+  email: Yup.string().email("Invalid email address").required("Email is required"),
+  password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
+});
+
+// Handle form submit
+const handleSubmit = (values: typeof initialValues) => {
+  console.log("Form submitted:", values);
+  // TODO: Call login API here
+};
 
 export default function Signin() {
   return (
     <>
-      {/* <GoogleSigninButton text="Sign in" /> */}
-
-      {/* <div className="my-6 flex items-center justify-center">
-        <span className="block h-px w-full bg-stroke dark:bg-dark-3"></span>
-        <div className="block w-full min-w-fit bg-white px-3 text-center font-medium dark:bg-gray-dark">
-         <h3>sign in with email</h3>
-        </div>
-        <span className="block h-px w-full bg-stroke dark:bg-dark-3"></span>
-      </div> */}
-
       <div className="my-6 text-center">
         <h1 className="text-4xl font-bold text-black dark:text-white">
           Sign in with Email
@@ -22,7 +30,13 @@ export default function Signin() {
       </div>
 
       <div>
-        <SigninWithPassword />
+        <SigninWithPassword
+          handleSubmit={handleSubmit}
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          error={null}      // Optional: You can wire this to your state
+          loading={false}   // Optional: You can toggle based on request status
+        />
       </div>
 
       <div className="mt-6 text-center">

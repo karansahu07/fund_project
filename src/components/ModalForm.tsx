@@ -394,7 +394,7 @@ export function ModalForm({
 
   return (
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="relative flex max-h-[90vh] w-full max-w-2xl flex-col rounded-lg bg-white shadow-2xl dark:bg-gray-800">
+      <div className="relative flex max-h-[70vh] w-full max-w-2xl flex-col rounded-lg bg-white shadow-2xl dark:bg-gray-800">
         {/* Header */}
         <div className="border-b border-gray-200 p-6 dark:border-gray-700">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
